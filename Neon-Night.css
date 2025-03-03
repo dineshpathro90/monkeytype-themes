@@ -1,0 +1,96 @@
+/* ==UserStyle==
+@name           Neon Night Cyberpunk
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A Cyberpunk theme for Monkeytype with a neon night aesthetic
+@author         YourName
+@homepageURL    https://github.com/YourUsername/monkeytype-themes
+@updateURL      https://github.com/YourUsername/monkeytype-themes/raw/main/neon-night.user.css
+==/UserStyle== */
+
+@-moz-document domain("monkeytype.com") {
+
+/* Override theme colors */
+:root {
+    --bg-color: #000000;
+    --main-color: #ff00ff;
+    --caret-color: #ffffff;
+    --sub-color: #00ffff;
+    --sub-alt-color: rgba(255, 0, 255, 0.5);
+    --text-color: #ffffff;
+    --error-color: #ff0000;
+    --error-extra-color: #800000;
+    --colorful-error-color: #ff0000;
+    --colorful-error-extra-color: #800000;
+}
+
+/* Background and effects */
+.customBackground {
+    background-image: url("https://example.com/neon-night.jpg") !important;
+    background-size: cover;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    transition: filter 1s ease !important;
+    filter: brightness(0.7) blur(0px);
+    animation: backgroundPan 20s linear infinite;
+}
+
+@keyframes backgroundPan {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
+}
+
+body[style*="cursor: none"] .customBackground {
+    filter: brightness(0.5) blur(5px);
+}
+
+/* Change logo text with animation */
+#top .logo .text {
+    visibility: hidden;
+    position: relative;
+}
+
+#top .logo .text::after {
+    content: 'monkeytype';
+    visibility: visible;
+    display: block;
+    margin-top: -0.7rem;
+    margin-left: -0.15rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#top .logo .text::before {
+    content: 'neon night';
+    visibility: visible;
+    display: block;
+    margin-top: -2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Hover effects for buttons */
+button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: var(--sub-color);
+}
+
+/* Text animation */
+.animatedText {
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% { color: var(--main-color); }
+    50% { color: var(--sub-color); }
+    100% { color: var(--main-color); }
+}
+
+}
