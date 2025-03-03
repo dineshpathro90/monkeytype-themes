@@ -1,0 +1,73 @@
+/* ==UserStyle==
+@name           Monkeytype Cyberpunk Matrix
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Cyberpunk Matrix theme for Monkeytype
+@author         cyberdev
+@homepageURL    https://github.com/cyberdev/monkeytype-themes
+@updateURL      https://github.com/cyberdev/monkeytype-themes/raw/main/cyberpunk-matrix.user.css
+==/UserStyle== */
+
+@-moz-document domain("monkeytype.com") {
+  :root {
+    --bg-color: #000000;
+    --main-color: #00ff00;
+    --caret-color: #00ff00;
+    --sub-color: #004400;
+    --sub-alt-color: #002200;
+    --text-color: #00ff00;
+    --error-color: #ff0033;
+    --error-extra-color: #99001a;
+    --colorful-error-color: #ff0033;
+    --colorful-error-extra-color: #99001a;
+  }
+
+  .customBackground {
+    background-image: url("https://wallpaperaccess.com/full/3703258.jpg") !important;
+    background-size: cover;
+    background-position: center;
+    animation: matrixRain 15s linear infinite;
+  }
+
+  @keyframes matrixRain {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 0% 100%; }
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: var(--main-color);
+    box-shadow: 0 0 15px var(--main-color);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .animatedText {
+    animation: matrixGlitch 3s infinite;
+  }
+
+  @keyframes matrixGlitch {
+    0% { text-shadow: 2px 2px var(--main-color); }
+    50% { text-shadow: -2px -2px var(--caret-color); }
+    100% { text-shadow: 2px 2px var(--main-color); }
+  }
+
+  #top .logo .text::after {
+    content: 'MATRIX';
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    animation: matrixGlitch 2s infinite;
+  }
+
+  input[type="text"] {
+    background: transparent;
+    border: 1px solid var(--caret-color);
+    color: var(--text-color);
+    transition: background 0.3s;
+  }
+
+  input[type="text"]:focus {
+    background: rgba(0, 255, 0, 0.2);
+    outline: none;
+  }
+}
