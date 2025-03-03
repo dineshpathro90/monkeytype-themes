@@ -1,0 +1,72 @@
+/* ==UserStyle==
+@name           Monkeytype Neon
+@namespace      github.com/openstyles/stylus
+@version        1.1.0
+@description    A neon theme for Monkeytype
+@author         refact0r
+@homepageURL    https://github.com/refact0r/monkeytype-themes
+@updateURL      https://github.com/refact0r/monkeytype-themes/raw/main/neon.user.css
+==/UserStyle== */
+
+@-moz-document domain("monkeytype.com") {
+:root {
+  --bg-color: #000000;
+  --main-color: #39ff14;
+  --caret-color: #ffffff;
+  --sub-color: #00ffcc;
+  --sub-alt-color: rgba(0, 0, 0, 0.5);
+  --text-color: #e9f0f3;
+  --error-color: #ff69b4;
+  --error-extra-color: #ff1493;
+  --colorful-error-color: #ff69b4;
+  --colorful-error-extra-color: #ff1493;
+}
+
+.customBackground {
+  background-image: url("https://example.com/neon.jpg") !important;
+  background-size: cover;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  transition: filter 1s ease !important;
+  filter: brightness(0.7) blur(0px);
+  animation: backgroundPan 20s linear infinite;
+}
+
+@keyframes backgroundPan {
+  0% { background-position: center top; }
+  100% { background-position: center bottom; }
+}
+
+body[style*="cursor: none"] .customBackground {
+  filter: brightness(0.5) blur(5px);
+}
+
+#top .logo .text::after {
+  content: 'monkeytype';
+  animation: fadeIn 1s ease-in-out;
+}
+
+#top .logo .text::before {
+  content: 'neon';
+  animation: fadeIn 2s ease-in-out;
+}
+
+button {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: var(--sub-color);
+}
+
+.animatedText {
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: var(--main-color); }
+  50% { color: var(--sub-color); }
+  100% { color: var(--main-color); }
+}
+}
